@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Suggestion</title>
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Find Your Phone</h1>
+    <form method="POST">
+        <label for="ram">Give the required RAM</label>
+        <select name="ram" id="ram">
+            <option value="" selected disabled>Select Your RAM</option>
+            <option value="2GB">2GB</option>
+            <option value="3GB">3GB</option>
+            <option value="4GB">4GB</option>
+            <option value="6GB">6GB</option>
+            <option value="8GB">8GB</option>
+            <option value="12GB">12GB</option>
+        </select><br><br>
+
+        <label for="storage">Select the required storage</label>
+        <select name="storage" id="storage">
+            <option value="" selected disabled>Select Your Storage</option>
+            <option value="32GB">32GB</option>
+            <option value="64GB">64GB</option>
+            <option value="128GB">128GB</option>
+            <option value="256GB">256GB</option>
+            <option value="512GB">512GB</option>
+        </select><br><br>
+
+        <label for="camera">Select Your Camera (Primary Camera)</label>
+        <select name="camera" id="camera">
+            <option value="" selected disabled>Select Your Camera</option>
+            <option value="12mp">12MP</option>
+            <option value="12.2mp">12.2MP</option>
+            <option value="13mp">13MP</option>
+            <option value="16mp">16MP</option>
+            <option value="48mp">48MP</option>
+            <option value="50mp">50MP</option>
+            <option value="64mp">64MP</option>
+            <option value="108mp">108MP</option>
+        </select><br><br>
+
+        <label for="lower_price_range">Select Your Lower Price Range</label>
+        <input type="text" id="lower_price_range" name="lower_price_range"><br><br>
+
+        <label for="higher_price_range">Select Your Higher Price Range</label>
+        <input type="text" id="higher_price_range" name="higher_price_range"><br><br>
+
+        <input type="submit" id="submit_button" name="submit_button" value="Find your Phone">
+    </form>
+    <div>
+        {% if suggestion %}
+            <p>{{ suggestion }}</p>
+        {% else %}
+            <p>No suggestion available. Please fill in the form.</p>
+        {% endif %}
+    </div>
+
+    <!--Dark mode to light mode and viceversa -->
+    <div class="mode_changer">
+        <button id="mode_switch" class="mode_button">Change Mode</button>
+    </div>
+
+    <!-- Link to JavaScript file, moved to the bottom -->
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>
